@@ -9,7 +9,7 @@ const slides = ref<SlideItem[]>([
     title: '创新生物技术',
     subtitle: 'Innovative Biotechnology',
     description: '致力于推动生命科学和生物技术的创新发展，为人类健康提供前沿解决方案',
-    backgroundImage: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920&q=80',
+    backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     backgroundPosition: 'center'
   },
   {
@@ -17,7 +17,7 @@ const slides = ref<SlideItem[]>([
     title: '精准医疗',
     subtitle: 'Precision Medicine',
     description: '结合基因组学和大数据分析，为患者提供个性化的精准治疗方案',
-    backgroundImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80',
+    backgroundImage: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     backgroundPosition: 'center'
   },
   {
@@ -25,7 +25,7 @@ const slides = ref<SlideItem[]>([
     title: '智能研发平台',
     subtitle: 'Intelligent R&D Platform',
     description: '利用人工智能和机器学习技术，加速新药研发和临床试验进程',
-    backgroundImage: 'https://images.unsplash.com/photo-1582719366820-c4e84c18c0ca?w=1920&q=80',
+    backgroundImage: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     backgroundPosition: 'center'
   },
   {
@@ -33,7 +33,7 @@ const slides = ref<SlideItem[]>([
     title: '全球合作伙伴',
     subtitle: 'Global Partnership',
     description: '与国际顶尖科研机构和医疗企业紧密合作，共同推进生物医药事业发展',
-    backgroundImage: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1920&q=80',
+    backgroundImage: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
     backgroundPosition: 'center'
   }
 ]);
@@ -182,8 +182,9 @@ onUnmounted(() => {
         class="slider-background"
         :class="{ active: index === currentIndex }"
         :style="{
-          backgroundImage: `url(${slide.backgroundImage})`,
-          backgroundPosition: slide.backgroundPosition || 'center'
+          background: slide.backgroundImage,
+          backgroundPosition: slide.backgroundPosition || 'center',
+          backgroundSize: 'cover'
         }"
       />
     </div>
