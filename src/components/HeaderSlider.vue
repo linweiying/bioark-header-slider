@@ -129,12 +129,18 @@ let touchStartX = 0;
 let touchEndX = 0;
 
 const handleTouchStart = (e: TouchEvent) => {
-  touchStartX = e.changedTouches[0].screenX;
+  const touch = e.changedTouches[0];
+  if (touch) {
+    touchStartX = touch.screenX;
+  }
 };
 
 const handleTouchEnd = (e: TouchEvent) => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
+  const touch = e.changedTouches[0];
+  if (touch) {
+    touchEndX = touch.screenX;
+    handleSwipe();
+  }
 };
 
 const handleSwipe = () => {
@@ -189,7 +195,7 @@ onUnmounted(() => {
     <div class="slider-content">
       <div class="content-wrapper">
         <transition name="slide-fade" mode="out-in">
-          <div :key="currentSlide.id" class="slide-text">
+          <div v-if="currentSlide" :key="currentSlide.id" class="slide-text">
             <p class="slide-subtitle">{{ currentSlide.subtitle }}</p>
             <h1 class="slide-title">{{ currentSlide.title }}</h1>
             <p class="slide-description">{{ currentSlide.description }}</p>
